@@ -5,7 +5,7 @@ This project is created on the 12th of August.
 Bicycle-sharing in Chicago, New York City, and Washington DC.
 
 ### Description
-Describe what your project is about and what it does
+This project used python code to explore data related to bike share systems for three major cities in the United States—Chicago, New York City, and Washington. As a result, it provided information including popular times of travel, popular stations and trip, trip duration and user information. 
 
 ### Files used
 
