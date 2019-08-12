@@ -2,7 +2,7 @@
 This project is created on the 12th of August. 
 
 ### Project Title
-Replace the Project Title
+Bicycle-sharing in Chicago, New York City, and Washington DC.
 
 ### Description
 Describe what your project is about and what it does
