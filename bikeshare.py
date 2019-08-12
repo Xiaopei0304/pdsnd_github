@@ -151,6 +151,7 @@ def user_stats(df,city):
     print('-'*40)
 
 def main():
+    """Display the result of the above analysis. Also provides raw data if required by the user.   """
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
