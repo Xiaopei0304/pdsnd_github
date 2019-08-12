@@ -24,5 +24,4 @@ Gender
 Birth Year
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+This project is a task of the Udacity Nanodegree "Programming for Data Science".
