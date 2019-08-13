@@ -102,10 +102,13 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     
     commonstart = df['Start Station'].mode()[0]
+    commonstart_c = df['Start Station'].value_counts().max()
     commonend = df['End Station'].mode()[0]
+    commonend_c = df['End Station'].value_counts().max()
     df['comb'] = df['Start Station'] + ' -> ' + df['End Station']
     commoncomb = df['comb'].mode()[0]
-    print("The most commonly used start station: {}\nThe most commonly used end station: {}\nThe most frequent combination of start station and end station trip: {}\n".format(commonstart,commonend,commoncomb))
+    commoncomb_c = df['comb'].value_counts().max()
+    print("The most commonly used start station: {}; Count: {}\nThe most commonly used end station: {}; Count: {}\nThe most frequent combination of start station and end station trip: {}; Count: {}\n".format(commonstart,commonstart_c,commonend,commonend_c,commoncomb,commoncomb_c))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
