@@ -46,6 +46,8 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
+    print('\nLoading data and applying filters...\n')
+    
     df = pd.read_csv(CITY_DATA[city])
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
@@ -102,10 +104,13 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     
     commonstart = df['Start Station'].mode()[0]
+    commonstart_c = df['Start Station'].value_counts().max()
     commonend = df['End Station'].mode()[0]
+    commonend_c = df['End Station'].value_counts().max()
     df['comb'] = df['Start Station'] + ' -> ' + df['End Station']
     commoncomb = df['comb'].mode()[0]
-    print("\nThe most commonly used start station: {}\nThe most commonly used end station: {}\nThe most frequent combination of start station and end station trip: {}\n".format(commonstart,commonend,commoncomb))
+    commoncomb_c = df['comb'].value_counts().max()
+    print("The most commonly used start station: {}; Count: {}\nThe most commonly used end station: {}; Count: {}\nThe most frequent combination of start station and end station trip: {}; Count: {}\n".format(commonstart,commonstart_c,commonend,commonend_c,commoncomb,commoncomb_c))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -120,7 +125,7 @@ def trip_duration_stats(df):
     # TO DO: display mean travel time
     totaltime = df['Trip Duration'].sum()
     meantime = df['Trip Duration'].mean()
-    print("\nTotal travel time (s): {}\nMean travel time (s): {}\n".format(totaltime,meantime))
+    print("Total travel time (s): {}\nMean travel time (s): {}\n".format(totaltime,meantime))
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -168,6 +173,7 @@ def main():
             n = n+5
             raw = input('\nType "yes" if you want to see more individual trip data.\n').lower()                  
 
+        print('-'*40)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
